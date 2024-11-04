@@ -1,0 +1,59 @@
+// aggressive_ai.rules
+ID = dsawse.aggressive_ai
+NameKey = "AI/Aggressive"
+UpdateInterval = [.15, .35]
+IsAvailableInCreativeMode = true
+IsCreativeModeDefault = false
+IsAvailableInMultiplayer = true
+IsMultiplayerDefault = false
+
+StrategyModules = 
+[
+    {
+        Type = AreaPatrol
+        DefaultPatrolRadius = 1000
+        AvoidableDoodadTags = [sun]
+        AvoidableDoodadBuffer = 50
+    }
+    {
+        Type = FollowFleetLeader
+    }
+    {
+        Type = AggroEnemies
+        TargetSwitchThresholdFactor = 1.2
+        TargetDistanceFactorExponent = 0.75
+        AlreadyTargetedByAllyFactor = 0.85
+        TargetFirepowerCacheTime = 5
+        AcquireAggroWithinRadar = true
+        ReleaseAggroWithinRadar = false
+        AvoidableDoodadTags = [sun]
+    }
+]
+
+TacticsModules = 
+[
+    {
+        Type = DefaultAttackRadiusAndRotation
+        AttackRotationSwitchThresholdFactor = 1.1
+        AttackRotationsToCheck = 12
+        UseSavedAboveHealth = 25%
+    }
+    {
+        Type = RandomAttackAngle
+        AttackAngleChangeInterval = [3, 6]
+        AttackAngleChangeDelta = [-45d, 45d]
+        CoordinateFlanking = true
+    }
+]
+
+TargetingModules = 
+[
+    {
+        Type = ValueTargeter
+        TargetChecksPerUpdate = 15
+        TargetSwitchThresholdFactor = 1.5
+        TargetValueFactorPerPenetrationDist = 1
+    }
+]
+
+CommsModules = &<./Data/ai/ai_common.rules>/CommsModulesDefault

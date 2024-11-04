@@ -1,0 +1,20 @@
+// mod.rules
+ID = dsawse.aggressive_ai
+Name = "Aggressive AI Difficulty"
+Version = 1.0
+CompatibleGameVersions = ["0.23.0", "0.24.0"]
+ModifiesMultiplayer = true
+Author = "Dsawse"
+
+Description = "Adds a new 'Aggressive' difficulty setting that makes enemies more aggressive.\n\n"
+
+Actions
+[
+    {
+        Action = Replace
+        Replace = "<ai/ai.rules>/Easy"
+        with = &<aggressive_ai.rules>
+    }
+]
+
+StringsFolder = "strings"

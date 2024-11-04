@@ -1,0 +1,9 @@
+// strings/en.rules
+Strings
+{
+    AI
+    {
+        Aggressive = "Aggressive"
+        AggressiveDesc = "Enemies are more aggressive, chase further, and retreat less often."
+    }
+}
